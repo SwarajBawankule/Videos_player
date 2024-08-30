@@ -1,0 +1,36 @@
+<!-- Clips List -->
+<div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+
+    <a *ngFor="let clip of clipsService.pageClips" [routerLink]="['/','clip', clip.docID]"
+        class="mt-6 rounded-tl-2xl rounded-br-2xl shadow-xl bg-stone-900 transform hover:-translate-y-2 hover:shadow-2xl transition duration-300">
+
+        <!-- Image -->
+        <img class="card-img-top rounded-tl-2xl w-full" [src]="clip.screenshotURL" crossorigin>
+
+        <!-- Shape -->
+        <div class="relative">
+            <div class="absolute pointer-events-none bottom-full w-full bg-black text-white">
+                <div class="absolute bottom-full w-full pb-5 overflow-hidden">
+                </div>
+            </div>
+        </div>
+
+        <!-- Body -->
+        <div class="p-8">
+
+            <!-- Heading -->
+            <h2 class="font-bold mb-2 truncate md:text-xl">
+                {{clip.title}}
+            </h2>
+
+            <!-- Name & Date -->
+            <p class="mb-0">
+                {{clip.displayName}} &#183;
+                <span class="text-gray-400">{{clip.timestamp | fbTimestamp}}</span>
+            </p>
+
+        </div>
+
+    </a>
+
+</div>
